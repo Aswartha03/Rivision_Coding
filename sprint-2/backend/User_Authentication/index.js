@@ -1,6 +1,7 @@
 let express = require ('express');
 const connectToDb = require ('./configs/db');
 const userRouter = require('./routes/userRoutes');
+const protectedRouter = require('./routes/protectedRoute');
 let app = express ();
 app.use (express.json ());
 
@@ -13,7 +14,7 @@ app.get ('/test', (req, res) => {
 });
 
 app.use("/user",userRouter)
-
+app.use("/protect",protectedRouter)
 app.use ((req, res) => {
   res.status (404).json ({message: '404, Route is not found'});
 });

@@ -1,20 +1,22 @@
 let mongoose = require ('mongoose');
-
 let studentSchema = new mongoose.Schema ({
   name: {type: String, required: true, minlength: 3},
-  email: {type: String, required: true, unique: true},
-  age: {type: Number, required: true, min: 5},
-  course: {
+  email: {
     type: String,
     required: true,
-    enum: ['Web Development', 'Data Science', 'UI/UX'],
+    unique: true,
+    match: [/^\S+@\S+\.\S+$/, 'Email Validation fails'],
+  },
+  age: {type: Number, min: 18, required: true},
+  course: {
+    type: String,
+    default: 'Web Development',
+    enum: ['Web Development', 'Data Sceince', 'System Design'],
   },
 });
-
 let studentModel = mongoose.model ('student', studentSchema);
 module.exports = studentModel;
-
-// name → string, required, min length: 3
-// email → string, required, unique, must be a valid email format
-// age → number, required, must be greater than or equal to 5
-// course → string, required, enum: "Web Development" | "Data Science" | "UI/UX"
+// name
+// email
+// age
+// course
