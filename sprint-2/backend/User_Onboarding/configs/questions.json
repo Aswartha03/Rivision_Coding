@@ -1,0 +1,11 @@
+ {
+  "questions": [
+    { "id": "Q1", "text": "What is your favorite book?" },
+    { "id": "Q2", "text": "What street did you grow up on?" },
+    { "id": "Q3", "text": "Who was your childhood best friend?" },
+    { "id": "Q4", "text": "What is the name of your favorite teacher?" },
+    { "id": "Q5", "text": "What is your dream travel destination?" },
+    { "id": "Q6", "text": "What was your childhood nickname?" },
+    { "id": "Q7", "text": "What is the name of your favorite sports team?" }
+  ]
+}
