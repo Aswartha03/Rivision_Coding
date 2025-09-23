@@ -3,12 +3,12 @@
     height: 25px;
     width: 100px;
 }
-#mealsContainer{
+#results{
     display: grid;
     grid-template-columns: repeat(3,1fr);
     gap: 10px 10px;
 }
-#dish{
+.meal{
     background-color: gray;
     align-items: center;
     padding: 10px;
