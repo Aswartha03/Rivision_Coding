@@ -1,0 +1,15 @@
+body {
+  margin: 0;
+  font-family: Arial, sans-serif;
+  transition: all 0.3s ease-in-out;
+}
+
+.light-theme {
+  background-color: #f9f9f9;
+  color: #222;
+}
+
+.dark-theme {
+  background-color: #222;
+  color: #f9f9f9;
+}
