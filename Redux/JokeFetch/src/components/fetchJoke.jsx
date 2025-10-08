@@ -4,9 +4,9 @@ export function Joke() {
   let [joke, setJoke] = useState("");
   let [loading, setLoading] = useState(false);
   let [error, setError] = useState(null);
-
+  let [jokes, setJokes] = useState([]);
   async function fetchJoke() {
-    setJoke("")
+    setJoke("");
     setLoading(true);
     try {
       let res = await fetch(
@@ -15,6 +15,7 @@ export function Joke() {
       let result = await res.json();
       setLoading(false);
       setJoke(result);
+      setJokes((prev) => [result, ...prev].slice(0, 5));
     } catch (error) {
       setLoading(false);
       setError(error.message);
@@ -30,6 +31,19 @@ export function Joke() {
           <p>Type : {joke.type}</p>
           <p>Setup : {joke.setup}</p>
           <p>Punchline : {joke.punchline}</p>
+        </div>
+      )}
+
+      {jokes.length >0 && (
+        <div style={{ marginTop: "20px" }}>
+          <h3>Last 5 Jokes:</h3>
+          <ul>
+            {jokes.map((j, idx) => (
+              <li key={idx}>
+                <strong>{j.setup}</strong> — {j.punchline}
+              </li>
+            ))}
+          </ul>
         </div>
       )}
     </>
