@@ -21,6 +21,9 @@ export function Joke() {
       setError(error.message);
     }
   }
+  function handleClearingHistory(){
+    setJokes([])
+  }
   return (
     <>
       <button onClick={fetchJoke}>Fetch Joke</button>
@@ -46,6 +49,7 @@ export function Joke() {
           </ul>
         </div>
       )}
+      <button disabled={jokes.length==0} onClick={handleClearingHistory}>Clear History</button>
     </>
   );
 }
